@@ -32,16 +32,6 @@ class Utility
     }
 
     /**
-     * AJAX Request
-     *
-     * @return bool
-     */
-    public static function isAjax()
-    {
-        return ($_SERVER['HTTP_NEO_AJAX'] ?? false) || ($_REQUEST['ajax'] ?? false) || ($_REQUEST['AJAX'] ?? false);
-    }
-
-    /**
      * 是否MD5字符串
      *
      * @param string $md5 The MD5 string
