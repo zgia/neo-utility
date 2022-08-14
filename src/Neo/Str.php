@@ -19,7 +19,7 @@ class Str
     {
         $pattern || $pattern = '';
 
-        return preg_split('/' . $pattern . '/', $subject, null, PREG_SPLIT_NO_EMPTY);
+        return preg_split('/' . $pattern . '/', $subject, 0, PREG_SPLIT_NO_EMPTY);
     }
 
     /**

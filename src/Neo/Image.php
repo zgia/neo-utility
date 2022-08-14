@@ -7,7 +7,7 @@ namespace Neo;
  */
 class Image
 {
-    const IMAGE_TYPE = [
+    public const IMAGE_TYPE = [
         '1' => 'gif',
         '2' => 'jpeg',
         '3' => 'png',
@@ -20,7 +20,7 @@ class Image
      * @param int    $width
      * @param int    $height
      *
-     * @return false|resource
+     * @return resource|\GDImage|false
      */
     public static function getResource(string $fileName, int &$width = 0, int &$height = 0)
     {
@@ -176,51 +176,51 @@ class Image
          *        #4        #5        #6
          *        #7        #8        #9
          */
-        //根据水印位置的不同，计算水印位置
+        // 根据水印位置的不同，计算水印位置
         $x = 0;
         $y = 0;
         switch ($pos) {
-            //左上
+            // 左上
             case 1:
                 $x = +5;
                 $y = +5;
                 break;
-            //中上
+            // 中上
             case 2:
                 $x = ($img_w - $logo_w) / 2;
                 $y = +5;
                 break;
-            //右上
+            // 右上
             case 3:
                 $x = $img_w - $logo_w - 5;
                 $y = +5;
                 break;
-            //左中
+            // 左中
             case 4:
                 $x = +5;
                 $y = ($img_h - $logo_h) / 2;
                 break;
-            //中
+            // 中
             case 5:
                 $x = ($img_w - $logo_w) / 2;
                 $y = ($img_h - $logo_h) / 2;
                 break;
-            //右中
+            // 右中
             case 6:
                 $x = $img_w - $logo_w;
                 $y = ($img_h - $logo_h) / 2;
                 break;
-            //左下
+            // 左下
             case 7:
                 $x = +5;
                 $y = $img_h - $logo_h - 5;
                 break;
-            //中下
+            // 中下
             case 8:
                 $x = ($img_w - $logo_w) / 2;
                 $y = $img_h - $logo_h - 5;
                 break;
-            //右下
+            // 右下
             case 9:
                 $x = $img_w - $logo_w - 5;
                 $y = $img_h - $logo_h - 5;

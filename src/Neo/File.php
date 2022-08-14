@@ -18,8 +18,8 @@ class File
     {
         $lines = 0;
 
-        //打开文件
-        $fp = fopen($file, 'r') or die('open file failure!');
+        // 打开文件
+        $fp = fopen($file, 'r') or exit('open file failure!');
         if ($fp) {
             while (stream_get_line($fp, 2)) {
                 ++$lines;
@@ -174,7 +174,7 @@ class File
 
         // 将截取的资源数据拼接起来
         for ($i = 0; $i < 10; ++$i) {
-            $str .= file_get_contents($fileName, null, null, $i * $step, 100);
+            $str .= file_get_contents($fileName, false, null, $i * $step, 100);
         }
 
         return md5($str);

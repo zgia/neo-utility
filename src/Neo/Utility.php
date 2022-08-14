@@ -26,9 +26,9 @@ class Utility
      */
     public static function xml2array(string $xml)
     {
-        libxml_disable_entity_loader(true);
+        $xml = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
 
-        return json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        return $xml ? json_decode(json_encode($xml), true) : null;
     }
 
     /**
@@ -128,7 +128,7 @@ class Utility
         $phpVersion = phpversion();
 
         if (version_compare($requiredVersion, $phpVersion, '>')) {
-            die(sprintf(
+            exit(sprintf(
                 'Your server is running PHP version %s but NeoFrame requires at least %s.',
                 $phpVersion,
                 $requiredVersion
