@@ -128,7 +128,7 @@ class Image
         }
 
         // 生成的缩略图名称
-        $thumbFile = $thumbDir . DIRECTORY_SEPARATOR . $pathinfo['fileName'] . '-thumb.' . $pathinfo['extension'];
+        $thumbFile = $thumbDir . DIRECTORY_SEPARATOR . $pathinfo['filename'] . '-thumb.' . $pathinfo['extension'];
 
         [$newWidth, $newHeight] = static::calculateWidthHeight($width, $height, $thumbWidth, $thumbHeight);
 
@@ -232,7 +232,7 @@ class Image
 
         // 输出
         $pathinfo = pathinfo($fileName);
-        $dest = $pathinfo['dirname'] . DIRECTORY_SEPARATOR . $pathinfo['fileName'] . '-water.' . $pathinfo['extension'];
+        $dest = $pathinfo['dirname'] . DIRECTORY_SEPARATOR . $pathinfo['filename'] . '-wm.' . $pathinfo['extension'];
         $createFunc = 'image' . static::IMAGE_TYPE[$img_type];
         $createFunc($srcImage, $dest);
 
